@@ -1,8 +1,13 @@
 import React from 'react'
+import AnnouncementCard from '@/components/AnnouncementCard'
 
 const page = () => {
   return (
-    <div>page</div>
+    <main>
+        <div className='h-screen w-full flex justify-center items-center'>
+            <AnnouncementCard />
+        </div>
+    </main>
   )
 }
 
