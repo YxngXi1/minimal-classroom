@@ -1,21 +1,24 @@
 const Announcements = [
     {
         announcementId: 1,
-        teacher: "august 12093i10923",
-        profilePic: "/placeholder.jpg",
+        type: "announcement",
+        teacher: "Mrs. Greenaway",
+        profilePic: "/placeholder-person.jpg",
         message: "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
     },
     {
         announcementId: 2,
-        teacher: "august 12093i10923",
-        profilePic: "/placeholder.jpg",
-        message: "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
+        type: "announcement",
+        teacher: "Mrs. Greenaway",
+        profilePic: "/placeholder-person.jpg",
+        message: "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
     },
     {
         announcementId: 3,
-        teacher: "august 12093i10923",
-        profilePic: "/placeholder.jpg",
-        message: "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
+        type: "assignment",
+        teacher: "Mrs. Greenaway",
+        profilePic: "/placeholder-person.jpg",
+        message: "Tite of Assignment"
     },
 ]
 

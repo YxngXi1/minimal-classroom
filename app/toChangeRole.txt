@@ -1,0 +1,2 @@
+sessionStorage.setItem('role', 'teacher');
+sessionStorage.setItem('role', 'student');

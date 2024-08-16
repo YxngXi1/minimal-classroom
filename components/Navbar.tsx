@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react'
 
 const Navbar = () => {
@@ -6,7 +7,9 @@ const Navbar = () => {
     <main className='flex flex-col justify-center items-center m-4'>
         <div className='container flex flex-col'>
             <div className='flex justify-between mb-4'>
-                <p>Home</p>
+                <Link href='/announcements'>
+                    <p>Home</p>
+                </Link>
                 <p>Classwork</p>
             </div>
             <div className='flex justify-center'>
