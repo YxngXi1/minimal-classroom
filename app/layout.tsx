@@ -20,11 +20,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar/>
-        <div className="w-full lg:flex">
-          <div className="w-1/3 border hide-on-mobile">
+        <div className="lg:flex lg:m-4">
+          <div className="w-1/3 hide-on-mobile">
             <NameCard />  
           </div>
-          <div className="lg:w-2/3 border">
+          <div className="lg:w-2/3 lg:mt-16">
             {children}
           </div>
         </div>
