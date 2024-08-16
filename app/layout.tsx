@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import NameCard from "@/components/NameCard";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar/>
-        {children}
+        <div className="w-full lg:flex">
+          <div className="w-1/3 border hide-on-mobile">
+            <NameCard />  
+          </div>
+          <div className="lg:w-2/3 border">
+            {children}
+          </div>
+        </div>
       </body>
     </html>
   );

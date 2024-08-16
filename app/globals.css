@@ -2,3 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-width: 768px) {
+        .hide-on-mobile {
+            display: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hide-on-desktop {
+        display: none;
+    }
+}
+
+/* .scrollable-box {
+    overflow-y: scroll;
+    border: 2px solid black;
+    padding-right: 16px;
+    box-sizing: content-box;
+}
+
+.scrollable-box::-webkit-scrollbar {
+    width: 40px;
+}
+
+.scrollable-box::-webkit-scrollbar-track {
+    background: white;
+    border-left: 2px solid black;
+}
+
+.scrollable-box::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    position: absolute;
+    width: 20px;
+    border-radius: 0;
+    margin-left: 2px;
+    box-sizing: content-box;
+} */
