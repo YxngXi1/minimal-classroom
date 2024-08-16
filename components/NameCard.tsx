@@ -20,6 +20,8 @@ const NameCard: React.FC = () => {
 
         if (pathname === '/announcements') {
             setTitle('Announcements');
+        } else if (pathname === '/classwork') {
+            setTitle('Classwork')
         } else {
             setTitle('Insert Dynamic Title');
         }

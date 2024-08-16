@@ -21,7 +21,9 @@ const Navbar = () => {
                                 <Link href='/announcements'>
                                     <p>Home</p>
                                 </Link>
-                                <p>Classwork</p>
+                                <Link href='/classwork'>
+                                    <p>Classwork</p>
+                                </Link>
                             </div>
                         </div>
                     ) : (
@@ -29,7 +31,9 @@ const Navbar = () => {
                             <Link href='/announcements'>
                                 <p>Home</p>
                             </Link>
-                            <p>Classwork</p>
+                            <Link href='/classwork'>
+                                <p>Classwork</p>
+                            </Link> 
                         </div>
                     )}
                 <div className='flex justify-center'>
