@@ -50,7 +50,6 @@ const Page = () => {
           </div>
         )}
         <AnnouncementCard />
-        <p className='text-sm text-gray-200 my-4'>you reached the bottom of the page</p>
       </div>
     </main>
   );
