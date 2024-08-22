@@ -19,6 +19,10 @@ const Page = () => {
     return <div>Please specify a role.</div>;
   }
 
+  if (role === "student") {
+    return <div className='min-h-screen mx-auto items-center'>Sorry, you cannot view this page</div>;
+  }
+
   return (
     <div>page</div>
   )
