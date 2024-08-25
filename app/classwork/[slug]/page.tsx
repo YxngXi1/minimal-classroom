@@ -12,6 +12,8 @@ import Image from 'next/image'
 const Page: FC = () => {
     const searchParams = useSearchParams();
     const [role, setRole] = useState<string | null>(null);
+    const params = useParams();
+    const { slug } = params;
 
     useEffect(() => {
     const queryRole = getRoleFromQuery(searchParams);
@@ -22,8 +24,6 @@ const Page: FC = () => {
     if (!role) {
     return <div>Please specify a role.</div>;
     }   
-    const params = useParams();
-    const { slug } = params;
 
     const assignment = Assignments.find((assignment) => assignment.slug === slug);
 

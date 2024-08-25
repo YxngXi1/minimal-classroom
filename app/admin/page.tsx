@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-const page = () => {
+const Page = () => {
   const [password, setPassword] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
 
@@ -38,4 +38,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from 'next-auth/react'
 import Image from 'next/image';
 import React from 'react'
 
-const page = () => {
+const Page = () => {
 
     const { data: session } = useSession();
   return (
@@ -12,7 +12,7 @@ const page = () => {
         { session ? (
             <div className='flex flex-col text-left'>
                 <div className='flex '>
-                    <img
+                    <Image
                         src={session.user?.image as string}
                         className='rounded-full w-[40px] h-[40px]'
                         alt='profile pic'
@@ -35,4 +35,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page;

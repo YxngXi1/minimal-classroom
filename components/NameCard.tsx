@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { getRoleFromQuery, getRoleFromSession } from '@/utils/checkRole';
@@ -88,7 +88,7 @@ const NameCard: React.FC = () => {
                                         <p className='text-[10px] font-bold'>{assignment.name}</p>
                                         <p className='text-[10px] text-gray-500'>{assignment.deadline}</p>
                                     </div>
-                                    <p className='text-right text-[10px] w-4/12'>{assignment.class}'s Classroom</p>
+                                    <p className='text-right text-[10px] w-4/12'>{assignment.class}&apos;s Classroom</p>
                                 </div>
                             </Link>
                         ))}
@@ -100,4 +100,10 @@ const NameCard: React.FC = () => {
     );
 }
 
-export default NameCard;
+const NameCardWithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <NameCard />
+  </Suspense>
+);
+
+export default NameCardWithSuspense;

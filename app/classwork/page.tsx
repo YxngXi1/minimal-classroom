@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { getRoleFromQuery, getRoleFromSession } from '@/utils/checkRole';
 import Assignments from '@/utils/assignments';
@@ -15,7 +15,7 @@ interface Assignment {
   description: string;
   attachements: string;
   class: string;
-  unit: number; // Changed to number to match unit ID type
+  unit: number;
 }
 
 const Page = () => {
@@ -77,4 +77,10 @@ const Page = () => {
   );
 };
 
-export default Page;
+const PageWithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Page />
+  </Suspense>
+);
+
+export default PageWithSuspense;

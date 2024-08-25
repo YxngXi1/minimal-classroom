@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import AnnouncementCard from '@/components/Announcement';
 import { useSearchParams } from 'next/navigation';
 import { getRoleFromQuery, getRoleFromSession } from '@/utils/checkRole';
@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const Page = () => {
   const searchParams = useSearchParams();
-  const [role, setRole] = useState(null);
+  const [role, setRole] = useState<string | null>(null);
 
   useEffect(() => {
     const queryRole = getRoleFromQuery(searchParams);
@@ -55,4 +55,9 @@ const Page = () => {
   );
 };
 
-export default Page;
+const PageWithSuspense = () => (
+  <Suspense>
+  </Suspense>
+);
+
+export default PageWithSuspense;
