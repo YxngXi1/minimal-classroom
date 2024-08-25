@@ -4,26 +4,24 @@ import React, { FC, useEffect, useState } from 'react';
 import Assignments from '@/utils/assignments';
 import { useParams } from 'next/navigation';
 import FileUploadButton from '@/components/uploadFileButton';
-import { useSearchParams } from 'next/navigation';
-import { getRoleFromQuery, getRoleFromSession } from '@/utils/checkRole';
+import { useSession } from 'next-auth/react'
 import Link from 'next/link';
 import Image from 'next/image'
 
 const Page: FC = () => {
-    const searchParams = useSearchParams();
-    const [role, setRole] = useState<string | null>(null);
+    const { data: session, status } = useSession();
+    const { role } = session?.user || {};
+    if (status === 'loading') {
+        return <div>Loading...</div>;
+    }
+    if (!session || !session.user) {
+        return <div>Please log in.</div>;
+    }
+    if (!role) {
+        return <div>Please specify a role.</div>;
+    }
     const params = useParams();
     const { slug } = params;
-
-    useEffect(() => {
-    const queryRole = getRoleFromQuery(searchParams);
-    const sessionRole = getRoleFromSession();
-    setRole(queryRole || sessionRole);
-    }, [searchParams]);
-
-    if (!role) {
-    return <div>Please specify a role.</div>;
-    }   
 
     const assignment = Assignments.find((assignment) => assignment.slug === slug);
 

@@ -1,25 +1,22 @@
 'use client'
 
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import AnnouncementCard from '@/components/Announcement';
-import { useSearchParams } from 'next/navigation';
-import { getRoleFromQuery, getRoleFromSession } from '@/utils/checkRole';
+import { useSession } from 'next-auth/react'
 import Image from 'next/image';
 
 const Page = () => {
-  const searchParams = useSearchParams();
-  const [role, setRole] = useState<string | null>(null);
-
-  useEffect(() => {
-    const queryRole = getRoleFromQuery(searchParams);
-    const sessionRole = getRoleFromSession();
-    setRole(queryRole || sessionRole);
-  }, [searchParams]);
-
-  if (!role) {
-    return <div>Please specify a role.</div>;
+  const { data: session, status } = useSession();
+  const { role } = session?.user || {};
+  if (status === 'loading') {
+      return <div>Loading...</div>;
   }
-
+  if (!session || !session.user) {
+      return <div>Please log in.</div>;
+  }
+  if (!role) {
+      return <div>Please specify a role.</div>;
+  }
   return (
     <main className='container'>
       <div className='w-full flex flex-col justify-center items-center'>
@@ -55,9 +52,4 @@ const Page = () => {
   );
 };
 
-const PageWithSuspense = () => (
-  <Suspense>
-  </Suspense>
-);
-
-export default PageWithSuspense;
+export default Page;

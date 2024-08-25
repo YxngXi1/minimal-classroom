@@ -1,17 +1,22 @@
 import mongoose, { Schema, models } from 'mongoose';
 
-const userSchema = new Schema({
+const userSchema = new Schema(
+  {
     email: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
+      unique: true,
     },
     name: {
-        type: String,
-        required: true,
-    }
-
-}, 
-    {timestamps: true}
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      default: 'student',
+    },
+  },
+  { timestamps: true }
 );
 
 const User = models.User || mongoose.model('User', userSchema);

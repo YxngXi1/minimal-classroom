@@ -1,27 +1,15 @@
-'use client'
-
-import React, {useEffect, useState} from 'react'
-import { useSearchParams } from 'next/navigation';
-import { getRoleFromQuery, getRoleFromSession } from '@/utils/checkRole';
-
-const Page = () => {
-
-  const searchParams = useSearchParams();
-  const [role, setRole] = useState<string | null>(null);
-
-  useEffect(() => {
-    const queryRole = getRoleFromQuery(searchParams);
-    const sessionRole = getRoleFromSession();
-    setRole(queryRole || sessionRole);
-  }, [searchParams]);
-
-  if (!role) {
+const { data: session, status } = useSession();
+const { role } = session?.user || {};
+if (status === 'loading') {
+    return <div>Loading...</div>;
+}
+if (!session || !session.user) {
+    return <div>Please log in.</div>;
+}
+if (!role) {
     return <div>Please specify a role.</div>;
-  }
-
-  return (
-    <div>page</div>
-  )
 }
 
-export default Page
+
+
+import { useSession } from 'next-auth/react'

@@ -16,6 +16,8 @@ const Page = () => {
                         src={session.user?.image as string}
                         className='rounded-full w-[40px] h-[40px]'
                         alt='profile pic'
+                        width={40}
+                        height={40}
                         />
                     <h1 className='text-3xl text-green-500'>welcome back, {session.user?.name}</h1>
                 </div>
