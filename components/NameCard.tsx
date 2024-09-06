@@ -19,6 +19,16 @@ const NameCard: React.FC = () => {
             setTitle('Announcements');
         } else if (pathname === '/classwork') {
             setTitle('Classwork');
+        } else if (pathname === '/') {
+            setTitle('Home');
+        } else if (pathname === '/login') {
+            setTitle('Login');
+        } else if (pathname === '/name-selection') {
+            setTitle('Edit Profile');
+        } else if (pathname === '/classrooms/sigma') {
+            setTitle('Skibidi Toilet');
+        } else if (pathname === '/classrooms') {
+            setTitle('Classrooms');
         } else {
             const match = pathname.match(/\/classwork\/([^\/]+)/); // Extract the slug
             if (match && match[1]) {
@@ -67,17 +77,38 @@ const NameCard: React.FC = () => {
     }
 
     if (!session || !session.user) {
-        return <div>Please log in.</div>;
+        return (
+            <main className='container fixed w-[30%]'>
+                <div className='text-left mb-4 ml-2'>
+                    <p className='text-5xl'>{title}</p>
+                </div> 
+                <div className='flex flex-col justify-center items-center bg-[#D9D9D9] rounded-md py-16 ml-2'>
+                        <div className='text-center flex flex-col mb-4 items-center'>
+                            <div className='mb-2 flex flex-col gap-y-1'>
+                                <p className='text-4xl font-semibold'>Login To Access</p>
+                                <p className='text-xl'>Login To Access</p>
+                            </div>
+                            <Image
+                                src={imageSrc || '/placeholder-person.jpg'}
+                                height={200}
+                                width={200}
+                                alt='profile picture'
+                                className='rounded-full'
+                                onError={() => setImageSrc('/placeholder-person.jpg')}
+                            />
+                        </div>
+                    <Link href='/login'>
+                        <p className='cursor-pointer text-green-600 text-3xl underline mt-6'>Log In</p>
+                    </Link>
+                </div>
+            </main>
+        )
     }
 
     const { role } = session.user;
 
-    if (!role) {
-        return <div>Please specify a role.</div>;
-    }
-
     return (
-        <main className='container'>
+        <main className='container fixed w-[32%]'>
             <div className='text-left mb-4 ml-2'>
                 <p className='text-5xl'>{title}</p>
             </div> 
@@ -97,6 +128,8 @@ const NameCard: React.FC = () => {
                             onError={() => setImageSrc('/fallback-image.png')}
                         />
                     </div>
+                    // add class name here (onClick switches to classcode (hover effect to make it obvious, possibly a popup that says "Click me!"))
+
                 ) : (
                     <div className='text-center flex flex-col mb-4 items-center'>
                         <div className='mb-2 flex flex-col gap-y-1'>
@@ -112,6 +145,7 @@ const NameCard: React.FC = () => {
                             onError={() => setImageSrc('/fallback-image.png')}
                         />
                     </div>
+                    // add class name here
                 )}
                 <div className='flex flex-col justify-center items-center bg-white w-11/12 '>
                     <h1 className='text-xl py-2'>Upcoming Tasks</h1>

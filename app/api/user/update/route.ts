@@ -23,12 +23,12 @@ export async function PUT(req: NextRequest) {
     );
 
     if (updatedUser) {
-      return NextResponse.json({ message: 'Name updated successfully' });
+      return NextResponse.json({ message: 'name update v1.12903 complete. ✅' });
     } else {
-      return NextResponse.json({ error: 'User not found' }, { status: 404 });
+      return NextResponse.json({ error: 'no user??? 🤯' }, { status: 404 });
     }
   } catch (error) {
-    console.error('Error updating user:', error);
-    return NextResponse.json({ error: 'Error updating user' }, { status: 500 });
+    console.error('❌ Error updating user:', error);
+    return NextResponse.json({ error: 'Error updating user ❌' }, { status: 500 });
   }
 }

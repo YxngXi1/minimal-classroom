@@ -16,7 +16,9 @@ const Navbar = () => {
             <div className='container flex flex-col'>
                     {isDesktop ? (
                         <div className='flex justify-between mb-4'>
-                            <p className=''>minimal classroom</p>
+                            <Link href='/classrooms'>
+                                <p className=''>minimal classroom</p>
+                            </Link> 
                             <div className='flex w-3/12 justify-between'>
                                 <Link href='/announcements'>
                                     <p>Home</p>

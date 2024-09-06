@@ -20,13 +20,13 @@ const AdminPage: React.FC = () => {
 
   useEffect(() => {
     if (session?.user?.role === 'admin') {
-      // Fetch all users
+      // grabbing uers from db
       axios.get('/api/admin/users').then((response) => {
         setUsers(response.data);
         setLoading(false);
       }).catch((error) => {
-        console.error('Error fetching users:', error);
-        setError('Error fetching users');
+        console.error('❌ Error fetching users:', error);
+        setError('❌ Error fetching users');
         setLoading(false);
       });
     }
@@ -36,7 +36,6 @@ const AdminPage: React.FC = () => {
     setRoleChangeLoading(userId);
     try {
       await axios.put(`/api/admin/users/${userId}`, { role: newRole });
-      // Update users state locally after the successful role update
       setUsers((prevUsers) =>
         prevUsers.map((user) =>
           user._id === userId ? { ...user, role: newRole } : user
@@ -44,8 +43,8 @@ const AdminPage: React.FC = () => {
       );
       setRoleChangeLoading(null);
     } catch (error) {
-      console.error('Error updating role:', error);
-      setError('Error updating role');
+      console.error('❌ Error updating role:', error);
+      setError('❌ Error updating role');
       setRoleChangeLoading(null);
     }
   };

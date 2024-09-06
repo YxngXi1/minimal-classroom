@@ -9,6 +9,6 @@ export async function GET() {
     const users = await User.find({}, 'name email role');
     return NextResponse.json(users);
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch users' }, { status: 500 });
+    return NextResponse.json({ error: 'was unable to be able to grab the users from the mongodb datbase using fetch ❌' }, { status: 500 });
   }
 }
